@@ -11,6 +11,7 @@ library protocol;
 
 // ignore: unused_import
 import 'dart:typed_data';
+
 import 'package:serverpod/serverpod.dart';
 
 import 'article_class.dart';
@@ -35,10 +36,8 @@ class Protocol extends SerializationManagerServer {
   Map<Type, Table> get typeTableMapping => _typeTableMapping;
 
   Protocol() {
-    constructors['Article'] = (Map<String, dynamic> serialization) =>
-        Article.fromSerialization(serialization);
-    constructors['Example'] = (Map<String, dynamic> serialization) =>
-        Example.fromSerialization(serialization);
+    constructors['Article'] = (Map<String, dynamic> serialization) => Article.fromSerialization(serialization);
+    constructors['Example'] = (Map<String, dynamic> serialization) => Example.fromSerialization(serialization);
 
     tableClassMapping['articles'] = 'Article';
     typeTableMapping[Article] = Article.t;
